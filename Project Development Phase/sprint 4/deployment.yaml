@@ -1,0 +1,25 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+   name: inventory-sys
+  spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: inventory_sys
+   template:
+     metadata:
+       labels:
+         app: inventory_sys
+     spec:
+       containers:
+       - name: inventory-sys
+         image: de.icr.io/flash_node/inventory_sys
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 80
+         - containerPort: 443
+         - name: tcp-28419
+           containerPort: 5000
+           hostPort: 5000
+           protocol: TCP
