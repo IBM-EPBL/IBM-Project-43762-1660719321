@@ -1,0 +1,33 @@
+Hi {{vendor["NAME"]}},
+
+here are the low stock products, please reorder it.
+
+<table class="table table-bordered">
+    <tr>
+        <th>Category</th>
+        <th>Item Name</th>
+        <th>Wholesale Price</th>
+        <th>Retail Price</th>
+        <th>Qty</th>
+        <th>Low Stock Limit</th>
+        <th>Lot No</th>
+        <th>Note</th>
+    </tr>
+    {%if inventory | length == 0%}
+    <tr>
+        <td colspan="8"><em>No Data Found.</em></td>
+    </tr>
+    {%endif%}
+    {%for inv in inventory%}
+    <tr>
+        <td>{{inv['CATEGORY']}}</td>
+        <td>{{inv['ITEMNAME']}}</td>
+        <td>{{inv['WHOLESALEPRICE']}}</td>
+        <td>{{inv['RETAILPRICE']}}</td>
+        <td>{{inv['QTY']}}</td>
+        <td>{{inv['LOW_STOCK_LIMIT']}}</td>
+        <td>{{inv['LOTNO']}}</td>
+        <td>{{inv['NOTE']}} </td>
+    </tr>
+    {%endfor%}
+</table>

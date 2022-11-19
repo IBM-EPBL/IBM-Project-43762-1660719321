@@ -1,0 +1,48 @@
+{% extends "base_template.html" %}
+{% block title %}Inventory{% endblock %}
+{% block content %}
+<section class="vh-100">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <h4 class="pull-left">Inventory</h4>
+          </div>
+          <div class="col-md-6 d-flex flex-row-reverse">
+              <a href="/inventory/new"><button class="btn btn-sm btn-success float-right">Add New</button></a>
+          </div>
+      </div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Category</th>
+        <th>Item Name</th>
+        <th>Wholesale Price</th>
+        <th>Retail Price</th>
+        <th>Qty</th>
+        <th>Low Stock Limit</th>
+        <th>Lot No</th>
+        <th>Note</th>
+        <th></th>
+    </tr>
+    {%if inventory | length == 0%}
+    <tr>
+        <td colspan="8"><em>No Data Found.</em></td>
+    </tr>
+    {%endif%}
+    {%for inv in inventory%}
+    <tr>
+        <td>{{inv['CATEGORY']}}</td>
+        <td>{{inv['ITEMNAME']}}</td>
+        <td>{{inv['WHOLESALEPRICE']}}</td>
+        <td>{{inv['RETAILPRICE']}}</td>
+        <td>{{inv['QTY']}}</td>
+        <td>{{inv['LOW_STOCK_LIMIT']}}</td>
+        <td>{{inv['LOTNO']}}</td>
+        <td>{{inv['NOTE']}} </td>
+        <td><a href="/inventory/edit/{{inv['ID']}}">Edit</a> </td>
+    </tr>
+    {%endfor%}
+</table>
+</div>
+</section>  
+{% endblock %}

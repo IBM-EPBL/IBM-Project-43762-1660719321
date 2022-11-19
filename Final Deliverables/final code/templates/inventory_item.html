@@ -1,0 +1,100 @@
+{% extends "base_template.html" %}
+{% block title %}Add Inventory{% endblock %}
+{% block content %}
+<section class="vh-100">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <h4 class="pull-left">Add Inventory</h4>
+          </div>
+          <div class="col-md-6 d-flex flex-row-reverse">
+          </div>
+      </div>
+      <form method="post" action="/inventory/save">
+          <input type="hidden" name="id" value="{{item['ID']}}">
+      <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Category </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Category" name="category"  value="{{item['CATEGORY']}}"/>
+              </div>
+            </div>
+<hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Item Name </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter  Item Name" name="item_name"  value="{{item['ITEMNAME']}}"/>
+              </div>
+            </div>
+<hr class="mx-n3">
+
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Wholesale Price </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Wholesale Price" name="wholesale_price"  value="{{item['WHOLESALEPRICE']}}"/>
+              </div>
+            </div>
+<hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Retail Price </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Retail Price" name="retail_price"  value="{{item['RETAILPRICE']}}"/>
+              </div>
+            </div>
+<hr class="mx-n3">
+              <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Qty </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Qty" name="qty"  value="{{item['QTY']}}"/>
+              </div>
+            </div>
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Low Stock Limit </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Low Stock Limit" name="low_stock_limit"  value="{{item['LOW_STOCK_LIMIT']}}"/>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Lot No  </h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Lot No" name="lot_no"  value="{{item['LOTNO']}}"/>
+              </div>
+            </div>
+    <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0"> Note</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Note" name="note"  value="{{item['NOTE']}}"/>
+              </div>
+            </div>
+
+
+              <button type="reset" class="btn btn-primary btn-lg"> Cancel</button>
+
+
+              <button type="submit" class="btn btn-primary btn-lg"> Save Inventory </button>
+
+          </div>
+        </div>
+      </form>
+</div>
+</section>
+{% endblock %}
